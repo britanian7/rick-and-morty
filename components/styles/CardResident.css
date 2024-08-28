@@ -1,0 +1,122 @@
+.card-resident {
+  background-color: #071e22;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  transition: ease-in-out 0.3s;
+  font-family: "Nunito", sans-serif;
+  cursor: pointer;
+}
+
+.card-resident:hover {
+  transform: scale(1.02);
+  transition: ease-in-out 0.3s;
+  box-shadow: 0 0 10px 1px #fff;
+}
+
+.resident-image {
+  border-radius: 10px 10px 0 0;
+  object-fit: cover;
+  margin: 0;
+  z-index: 1;
+}
+
+.resident-status {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  background-color: #071e22;
+  color: white;
+  padding: 3px 15px;
+  border-radius: 0 5px 5px 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+}
+
+.resident-status::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px;
+  animation: none;
+}
+
+.resident-status.alive::before {
+  background-color: green;
+  animation: pulseGreen 1s infinite;
+  width: 15px;
+  height: 15px;
+}
+
+.resident-status.dead::before {
+  background-color: red;
+  animation: pulseRed 1s infinite;
+  width: 15px;
+  height: 15px;
+}
+
+.resident-status.unknown::before {
+  background-color: gray;
+  width: 15px;
+  height: 15px;
+}
+
+@keyframes pulseGreen {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulseRed {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.resident-name {
+  font-size: 1.5em;
+  margin: 8px 5px;
+  max-width: 290px;
+}
+
+.resident-origin,
+.resident-species,
+.resident-episodes {
+  margin: 4px 0;
+  padding: 5px 0;
+  max-width: 290px;
+}
+
+.loading {
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.error {
+  color: red;
+  text-align: center;
+}
+
+.residents-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 3em;
+}
